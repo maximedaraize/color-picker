@@ -1,2 +1,10 @@
-# tasty-colors
-Sass and Css variable named after fruits, vegies, sweet, and junk food
+# Tasty-colors
+
+Delicious SCSS and CSS foods variables
+
+## Food Categories
+
+* Fruits
+* Vegies
+* Sweets
+* Junk Food

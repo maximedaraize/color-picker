@@ -1,0 +1,28 @@
+{
+  "name": "tasty-colors",
+  "version": "1.0.0",
+  "description": "CSS and SCSS color variables named after different types of foods, (fruits, vegetables, sweet and junk food).",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximeDaraize/tasty-colors.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "color"
+  ],
+  "author": "Maxime Daraize",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maximeDaraize/tasty-colors/issues"
+  },
+  "homepage": "https://github.com/maximeDaraize/tasty-colors#readme"
+}

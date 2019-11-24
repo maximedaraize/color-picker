@@ -1,10 +1,7 @@
-# Tasty-colors
+# Tasty colors
 
-Delicious SCSS and CSS foods variables
+Delicious colors
 
 ## Food Categories
 
 * Fruits
-* Vegies
-* Sweets
-* Junk Food

@@ -1,14 +1,14 @@
 {
   "name": "tasty-colors",
   "version": "1.0.0",
-  "description": "CSS and SCSS color variables named after different types of foods, (fruits, vegetables, sweet and junk food).",
+  "description": "color based on food",
   "main": "index.js",
   "dependencies": {
     "node-sass": "^4.13.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "node-sass --watch scss -o css "
   },
   "repository": {
     "type": "git",

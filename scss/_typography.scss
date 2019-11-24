@@ -1,0 +1,24 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading;
+  text-align: left;
+  text-transform: uppercase;
+  margin-left: 2rem;
+  &.title {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+p,
+a,
+li {
+  font-family: $body;
+  margin: 0;
+  padding: 0;
+  color: #292929;
+}

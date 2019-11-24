@@ -1,0 +1,11 @@
+footer {
+  // outline: 1px dashed orangered;
+  height: $height-footer;
+  margin-top: auto;
+  display: flex;
+
+  align-items: center;
+  p {
+    margin-left: 2rem;
+  }
+}

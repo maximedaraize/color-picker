@@ -1,0 +1,29 @@
+.card {
+  width: 240px;
+  height: 280px;
+  margin: 2rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 3px;
+  background: #fff;
+
+  .card-body {
+    height: 100%;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-footer {
+    padding-top: 1rem;
+    margin-top: auto;
+    background: white;
+    color: #292929;
+
+    p::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

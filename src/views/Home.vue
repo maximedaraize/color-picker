@@ -1,17 +1,20 @@
 <template>
   <div class="home">
-    <Colors></Colors>
+    <Color></Color>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Colors from "@/components/Colors.vue";
+import Color from "@/components/Color.vue";
 
 export default {
   name: "Home",
   components: {
-    Colors
+    Color
   }
 };
 </script>
+
+<style lang="scss" scoped>
+</style>

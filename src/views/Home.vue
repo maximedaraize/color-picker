@@ -6,14 +6,14 @@
 
 <script>
 // @ is an alias to /src
-import Color from "@/components/Color.vue";
+import Color from '@/components/Color.vue'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Color
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

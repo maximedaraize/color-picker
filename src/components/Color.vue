@@ -2,11 +2,7 @@
   <div class="main">
     <nav>
       All:
-      <input
-        type="radio"
-        v-model="colors"
-        value="red, black, brown, orange, green, purple, yellow"
-      />
+      <input type="radio" v-model="colors" value="" />
       Red:
       <input type="radio" v-model="colors" value="red" />
       yellow:
@@ -20,7 +16,7 @@
         v-model="keyword"
       />
 
-      <strong>Size:</strong>
+      <strong>Type of food:</strong>
       fruit:
       <input type="radio" v-model="typeOfFood" value="fruit" />
       veggies:
@@ -58,8 +54,10 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      colors: [],
-      typeOfFood: [],
+      colors: '',
+      sortBy: 'name',
+      keyword: '',
+      typeOfFood: 'fruit',
       products: [
         {
           name: 'banana',
@@ -124,9 +122,7 @@ export default {
           typeOfFood: 'fruit'
         },
         { name: 'kiwi', color: 'green', hex: '#a3c24a', typeOfFood: 'fruit' }
-      ],
-      sortBy: 'name',
-      keyword: ''
+      ]
     }
   },
   computed: {

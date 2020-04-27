@@ -13,7 +13,12 @@
       <input type="radio" v-model="colors" value="yellow" />
     </nav>
     <nav class="secondary">
-      <input class="search" type="text" placeholder="recherche" v-model="keyword" />
+      <input
+        class="search"
+        type="text"
+        placeholder="recherche"
+        v-model="keyword"
+      />
 
       <strong>Size:</strong>
       fruit:
@@ -28,22 +33,29 @@
       </select>
     </nav>
     <div>
-      <h3>Total {{computedProducts.length}} Products</h3>
+      <h3>Total {{ computedProducts.length }} Products</h3>
       <div class="card_container">
-        <div class="card" v-for="(product, index) in computedProducts" :key="index">
-          <div v-bind:style="{ background: product.hex }" class="background"></div>
+        <div
+          class="card"
+          v-for="(product, index) in computedProducts"
+          :key="index"
+        >
+          <div
+            v-bind:style="{ background: product.hex }"
+            class="background"
+          ></div>
 
-          <p>{{product.name}}</p>
-          <p>{{product.hex}}</p>
+          <p>{{ product.name }}</p>
+          <p>{{ product.hex }}</p>
         </div>
       </div>
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Color',
   data() {
     return {
       colors: [],

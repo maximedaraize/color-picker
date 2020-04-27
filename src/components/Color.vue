@@ -13,33 +13,45 @@
       <input type="radio" v-model="colors" value="yellow" />
     </nav>
     <nav class="secondary">
-      <input class="search" type="text" placeholder="recherche" v-model="keyword" />
+      <input
+        class="search"
+        type="text"
+        placeholder="recherche"
+        v-model="keyword"
+      />
 
       <strong>Size:</strong>
       fruit:
-      <input type="radio" v-model="sort" value="fruit" />
+      <input type="radio" v-model="typeOfFood" value="fruit" />
       veggies:
-      <input type="radio" v-model="sort" value="veggies" />
+      <input type="radio" v-model="typeOfFood" value="veggies" />
 
       <select v-model="sortBy">
         <option value="name">Product Name</option>
-        <option value="color">Color</option>
+        <option value="hex">Color</option>
         <option value="typeOfFood">typeOfFood</option>
       </select>
     </nav>
     <div>
-      <h3>Total {{computedProducts.length}} Products</h3>
+      <h3>Total {{ computedProducts.length }} Products</h3>
       <div class="card_container">
-        <div class="card" v-for="(product, index) in computedProducts" :key="index">
-          <div v-bind:style="{ background: product.hex }" class="background"></div>
+        <div
+          class="card"
+          v-for="(product, index) in computedProducts"
+          :key="index"
+        >
+          <div
+            v-bind:style="{ background: product.hex }"
+            class="background"
+          ></div>
 
-          <p>{{product.name}}</p>
-          <p>{{product.hex}}</p>
+          <p>{{ product.name }}</p>
+          <p>{{ product.hex }}</p>
         </div>
       </div>
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 export default {
@@ -82,19 +94,19 @@ export default {
         { name: 'mango', color: 'orange', hex: '#eda907', typeOfFood: 'fruit' },
         {
           name: 'apple (red)',
-          red: 'yellow',
+          color: 'red',
           hex: '#c53121',
           typeOfFood: 'fruit'
         },
         {
           name: 'apple (green)',
-          green: 'yellow',
+          color: 'green',
           hex: '#71ba07',
           typeOfFood: 'fruit'
         },
         {
           name: 'apple (yellow)',
-          yellow: 'yellow',
+          color: 'yellow',
           hex: '#fbd333',
           typeOfFood: 'fruit'
         },

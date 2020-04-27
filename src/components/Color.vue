@@ -1,130 +1,183 @@
 <template>
-  <div class="container">
-    <div class="controls">
-      <button
-        @click.prevent="colorsCategory=['fruit', 'candy']; activeLink('btn-all');"
-        :class="{active: activeId == 'btn-all'}"
-      >all</button>
-      <button
-        @click="colorsCategory=['fruit']; activeLink('btn-fruits');; "
-        :class="{active: activeId == 'btn-fruits'}"
-      >fruits</button>
-      <button
-        @click="colorsCategory=['candy']; activeLink('btn-veggies');"
-        :class="{active: activeId == 'btn-veggies'}"
-      >veggies</button>
-    </div>
-    <div class="layout">
-      <div v-for="color in filterByCategory" :key="color.name" class="card">
-        <div v-bind:style="{ background: color.hex }" class="color-container"></div>
-        <p class="color-value">{{ color.name }}</p>
-        <p class="color-value">{{ color.hex }}</p>
+  <div class="main">
+    <nav>
+      All:
+      <input
+        type="radio"
+        v-model="colors"
+        value="red, black, brown, orange, green, purple, yellow"
+      />
+      Red:
+      <input type="radio" v-model="colors" value="red" />
+      yellow:
+      <input type="radio" v-model="colors" value="yellow" />
+    </nav>
+    <nav class="secondary">
+      <input class="search" type="text" placeholder="recherche" v-model="keyword" />
+
+      <strong>Size:</strong>
+      fruit:
+      <input type="radio" v-model="sort" value="fruit" />
+      veggies:
+      <input type="radio" v-model="sort" value="veggies" />
+
+      <select v-model="sortBy">
+        <option value="name">Product Name</option>
+        <option value="color">Color</option>
+        <option value="typeOfFood">typeOfFood</option>
+      </select>
+    </nav>
+    <div>
+      <h3>Total {{computedProducts.length}} Products</h3>
+      <div class="card_container">
+        <div class="card" v-for="(product, index) in computedProducts" :key="index">
+          <div v-bind:style="{ background: product.hex }" class="background"></div>
+
+          <p>{{product.name}}</p>
+          <p>{{product.hex}}</p>
+        </div>
       </div>
     </div>
   </div>
-</template>
+</template> 
 
 <script>
 export default {
-  name: 'Color',
+  name: 'HelloWorld',
   data() {
     return {
-      isActive: false,
-      colorsCategory: ['fruit', 'veggies'],
-      colors: [
-        { name: 'banana', hex: '#f4d560', category: 'fruit' },
-        { name: 'orange', hex: '#ef9439', category: 'fruit' },
-        { name: 'strawberry', hex: '#f9340e', category: 'fruit' },
-        { name: 'raspberry', hex: '#f0455e', category: 'fruit' },
-        { name: 'blackberry', hex: '#434554', category: 'fruit' },
-        { name: 'mango', hex: '#eda907', category: 'fruit' },
-        { name: 'apple (red)', hex: '#c53121', category: 'fruit' },
-        { name: 'apple (green)', hex: '#71ba07', category: 'fruit' },
-        { name: 'apple (yellow)', hex: '#fbd333', category: 'fruit' },
-        { name: 'cherry', hex: '#7f0006', category: 'fruit' },
-        { name: 'watermelon', hex: '#e96452', category: 'fruit' },
-        { name: 'coconut', hex: '#dddeda', category: 'fruit' },
-        { name: 'kiwi', hex: '#a3c24a', category: 'fruit' }
-      ]
+      colors: [],
+      typeOfFood: [],
+      products: [
+        {
+          name: 'banana',
+          color: 'yellow',
+          hex: '#f4d560',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'orange',
+          color: 'orange',
+          hex: '#ef9439',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'strawberry',
+          color: 'red',
+          hex: '#f9340e',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'raspberry',
+          color: 'red',
+          hex: '#f0455e',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'blackberry',
+          color: 'purple',
+          hex: '#434554',
+          typeOfFood: 'fruit'
+        },
+        { name: 'mango', color: 'orange', hex: '#eda907', typeOfFood: 'fruit' },
+        {
+          name: 'apple (red)',
+          red: 'yellow',
+          hex: '#c53121',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'apple (green)',
+          green: 'yellow',
+          hex: '#71ba07',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'apple (yellow)',
+          yellow: 'yellow',
+          hex: '#fbd333',
+          typeOfFood: 'fruit'
+        },
+        { name: 'cherry', color: 'red', hex: '#7f0006', typeOfFood: 'fruit' },
+        {
+          name: 'watermelon',
+          color: 'pink',
+          hex: '#e96452',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'coconut',
+          color: 'white',
+          hex: '#dddeda',
+          typeOfFood: 'fruit'
+        },
+        { name: 'kiwi', color: 'green', hex: '#a3c24a', typeOfFood: 'fruit' }
+      ],
+      sortBy: 'name',
+      keyword: ''
     }
   },
   computed: {
-    filterByCategory: function() {
-      var colorsCategory = this.colorsCategory
-
-      return this.colors.filter(function(color) {
-        return colorsCategory.indexOf(color.category) >= 0
-      })
-    }
-  },
-  methods: {
-    activeLink(linkIdent) {
-      this.activeId = this.activeId === linkIdent ? null : linkIdent
+    computedProducts: function() {
+      return this.products
+        .filter(item => {
+          return (
+            (this.keyword.length === 0 || item.name.includes(this.keyword)) &&
+            (this.colors.length === 0 || this.colors.includes(item.color)) &&
+            (this.typeOfFood.length === 0 ||
+              this.typeOfFood.includes(item.typeOfFood))
+          )
+        })
+        .sort((a, b) => {
+          return a[this.sortBy]
+            .toString()
+            .localeCompare(b[this.sortBy].toString())
+        })
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.container {
-  width: 100%;
-}
-
-.layout {
+<style lang="css" scoped>
+.card_container {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  width: 100%;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-
-  button {
-    font-size: 1rem;
-    color: navy;
-    background: white;
-    border: 1px solid navy;
-    border-radius: 4px;
-    margin: 1rem;
-    padding: 6px 24px;
-    transition: 0.25s ease-in;
-
-    &.active {
-      color: white;
-      border: 1px solid navy;
-      background: navy;
-    }
-  }
 }
 
 .card {
-  box-sizing: border-box;
-  height: 200px;
-  width: 160px;
+  width: 200px;
+}
+
+nav {
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  margin: 10px;
+  margin-bottom: 16px;
+}
 
-  p {
-    font-size: 0.8rem;
-    display: inline-block;
-    background: white;
-    width: 100%;
-    padding-top: 4px;
-    margin: 0;
-    text-transform: uppercase;
+nav.secondary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 
-    &:last-child {
-      padding-top: 0;
-    }
-  }
+.background {
+  width: 120px;
+  height: 100px;
+  border-radius: 4px;
+}
 
-  .color-container {
-    height: 100%;
-    border-radius: 8px;
-  }
+input.search {
+  margin-right: auto;
+}
+
+input {
+  margin: 0 16px;
+}
+
+p {
+  margin: 0;
 }
 </style>

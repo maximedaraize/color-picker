@@ -1,12 +1,25 @@
 <template>
   <div class="main">
     <nav>
-      All:
-      <input type="radio" v-model="colors" value="" />
-      Red:
-      <input type="radio" v-model="colors" value="red" />
-      yellow:
-      <input type="radio" v-model="colors" value="yellow" />
+      <div class="color-choice">
+        <label for=""> All</label>
+        <input type="radio" v-model="colors" value="" />
+      </div>
+      <div class="color-choice">
+        <input type="radio" v-model="colors" value="red" />
+        <label for="">Red</label>
+      </div>
+      <div class="color-choice">
+        <input type="radio" v-model="colors" value="green" />
+        <label for="">Green</label>
+      </div>
+      <div class="color-choice">
+        <input type="radio" v-model="colors" value="yellow" />
+        <label for="">Yellow</label>
+      </div>
+      <div class="filter">
+        <button>Filter</button>
+      </div>
     </nav>
     <nav class="secondary">
       <input
@@ -51,9 +64,9 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
   data() {
     return {
+      isActive: false,
       colors: '',
       sortBy: 'name',
       keyword: '',
@@ -146,7 +159,49 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+.color-choice {
+  border: 1px solid navy;
+  border-radius: 8px;
+  padding: 6px 18px;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  margin: 0 16px;
+  transition: 0.222s ease-in;
+  color: navy;
+
+  &:hover,
+  .active {
+    background: navy;
+    color: #fff;
+  }
+
+  input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    margin: 0;
+    color: transparent;
+    border: transparent;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+}
+
 .card_container {
   display: flex;
   align-items: center;

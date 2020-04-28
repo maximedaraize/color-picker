@@ -13,7 +13,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="css">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,14 +24,16 @@ export default {
   display: flex;
   justify-content: flex-end;
   padding: 32px 0;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    padding: 0 8px;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+  padding: 0 8px;
+}
+
+a.router-link-exact-active {
+  color: #42b983;
 }
 body {
   margin: 32px;

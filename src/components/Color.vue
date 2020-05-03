@@ -1,62 +1,16 @@
 <template>
   <div class="main">
-    <nav>
-      <div class="color-choice">
-        <label for=""> All</label>
-        <input type="radio" v-model="colors" value="" />
-      </div>
-      <div class="color-choice">
-        <input type="radio" v-model="colors" value="red" />
-        <label for="">Red</label>
-      </div>
-      <div class="color-choice">
-        <input type="radio" v-model="colors" value="green" />
-        <label for="">Green</label>
-      </div>
-      <div class="color-choice">
-        <input type="radio" v-model="colors" value="yellow" />
-        <label for="">Yellow</label>
-      </div>
-      <div class="filter">
-        <button>Filter</button>
-      </div>
+    <label>{{ computedProducts.length }} colors</label>
+    <nav class="searchbar">
+      <input class="search" type="text" placeholder="Search" v-model="keyword" />
     </nav>
-    <nav class="secondary">
-      <input
-        class="search"
-        type="text"
-        placeholder="recherche"
-        v-model="keyword"
-      />
 
-      <strong>Type of food:</strong>
-      fruit:
-      <input type="radio" v-model="typeOfFood" value="fruit" />
-      veggies:
-      <input type="radio" v-model="typeOfFood" value="veggies" />
+    <div class="card_container">
+      <div class="card" v-for="(product, index) in computedProducts" :key="index">
+        <div v-bind:style="{ background: product.hex }" class="background"></div>
 
-      <select v-model="sortBy">
-        <option value="name">Product Name</option>
-        <option value="hex">Color</option>
-        <option value="typeOfFood">typeOfFood</option>
-      </select>
-    </nav>
-    <div>
-      <h3>Total {{ computedProducts.length }} Products</h3>
-      <div class="card_container">
-        <div
-          class="card"
-          v-for="(product, index) in computedProducts"
-          :key="index"
-        >
-          <div
-            v-bind:style="{ background: product.hex }"
-            class="background"
-          ></div>
-
-          <p>{{ product.name }}</p>
-          <p>{{ product.hex }}</p>
-        </div>
+        <p>{{ product.name }}</p>
+        <p>{{ product.hex }}</p>
       </div>
     </div>
   </div>
@@ -160,57 +114,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.color-choice {
-  border: 1px solid navy;
-  border-radius: 8px;
-  padding: 6px 18px;
-  position: relative;
-  width: 60px;
-  height: 30px;
-  margin: 0 16px;
-  transition: 0.222s ease-in;
-  color: navy;
-
-  &:hover,
-  .active {
-    background: navy;
-    color: #fff;
-  }
-
-  input {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-    margin: 0;
-    color: transparent;
-    border: transparent;
-    background: transparent;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    -webkit-appearance: none;
-  }
-
-  label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-  }
-}
-
 .card_container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  justify-content: center;
+  width: calc(100vw - 64px);
+  grid-gap: 0 32px;
+  grid-template-columns: repeat(1, 240px);
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(2, 120px);
+  }
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(4, 120px);
+  }
+
+  @media (min-width: 950px) {
+    grid-template-columns: repeat(6, 120px);
+  }
+
+  @media (min-width: 1250px) {
+    grid-template-columns: repeat(8, 120px);
+  }
 }
 
 .card {
-  width: 200px;
+  width: 100%;
+  margin-bottom: 32px;
+
+  .background {
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .background {
+    width: 120px;
+    height: 100px;
+    border-radius: 4px;
+
+    @media (max-width: 479px) {
+      width: 240px;
+      height: 200px;
+    }
+  }
 }
 
 nav {
@@ -218,29 +167,32 @@ nav {
   display: flex;
   justify-content: center;
   margin-bottom: 16px;
+
+  input {
+    height: 32px;
+    width: 320px;
+    border-radius: 8px;
+    border: 1px solid tomato;
+    padding: 4px 16px;
+    font-size: 18px;
+    background: #f3f3f4;
+    border: 1px solid transparent;
+    transition: 0.222s ease-in;
+    margin-bottom: 48px;
+
+    &:hover,
+    &:focus {
+      background: transparent;
+      border: 1px solid #f3f3f4;
+      box-shadow: 0 0 0 4px rgba(234, 76, 137, 0.1);
+    }
+  }
 }
 
-nav.secondary {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.background {
-  width: 120px;
-  height: 100px;
-  border-radius: 4px;
-}
-
-input.search {
-  margin-right: auto;
-}
-
-input {
-  margin: 0 16px;
-}
-
-p {
-  margin: 0;
+label {
+  position: absolute;
+  left: 8px;
+  top: 24px;
+  font-size: 14px;
 }
 </style>

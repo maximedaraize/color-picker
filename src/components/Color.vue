@@ -1,8 +1,8 @@
 <template>
   <div class="main">
-    <label>{{ computedProducts.length }} colors</label>
     <nav class="searchbar">
       <input class="search" type="text" placeholder="Search" v-model="keyword" />
+      <label>{{ computedProducts.length }} colors</label>
     </nav>
 
     <div class="card_container">
@@ -154,6 +154,13 @@ export default {
     width: 120px;
     height: 100px;
     border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(82, 78, 78, 0.09), 0 6px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.333s ease-in-out;
+
+    &:hover {
+      box-shadow: none;
+    }
 
     @media (max-width: 479px) {
       width: 240px;
@@ -179,6 +186,7 @@ nav {
     border: 1px solid transparent;
     transition: 0.222s ease-in;
     margin-bottom: 48px;
+    margin-left: auto;
 
     &:hover,
     &:focus {
@@ -187,12 +195,10 @@ nav {
       box-shadow: 0 0 0 4px rgba(234, 76, 137, 0.1);
     }
   }
-}
 
-label {
-  position: absolute;
-  left: 8px;
-  top: 24px;
-  font-size: 14px;
+  label {
+    margin-left: auto;
+    font-weight: bold;
+  }
 }
 </style>

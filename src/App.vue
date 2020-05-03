@@ -38,4 +38,11 @@ a.router-link-exact-active {
 body {
   margin: 32px;
 }
+
+.swal2-content {
+  color: white !important;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 </style>

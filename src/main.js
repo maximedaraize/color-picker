@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueClipboard from 'vue-clipboard2'
-// import { clipboard } from 'vue-clipboards'
+import VueSweetalert2 from 'vue-sweetalert2'
 import router from './router'
 
 Vue.use(VueClipboard)
+Vue.use(VueSweetalert2)
 Vue.config.productionTip = false
 
 new Vue({

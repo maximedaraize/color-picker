@@ -1,13 +1,15 @@
 <template>
   <div class="main">
     <nav class="searchbar">
-      <input
-        class="search"
-        type="text"
-        placeholder="Search"
-        v-model="keyword"
-      />
-      <label>{{ computedProducts.length }} colors</label>
+      <form action="">
+        <input
+          class="search"
+          type="text"
+          placeholder="Search"
+          v-model="keyword"
+        />
+        <label>{{ computedProducts.length }} colors</label>
+      </form>
     </nav>
 
     <div class="card_container">
@@ -20,6 +22,7 @@
           v-bind:style="{ background: product.hex }"
           class="background"
           v-clipboard:copy="JSON.stringify(product.hex)"
+          v-on:click="alertDisplay"
         ></div>
         <span class="badge" v-if="isHidden">copied</span>
         <p>{{ product.name }}</p>
@@ -33,7 +36,6 @@
 export default {
   data() {
     return {
-      isHidden: false,
       isActive: false,
       colors: '',
       sortBy: 'name',
@@ -124,11 +126,32 @@ export default {
             .localeCompare(b[this.sortBy].toString())
         })
     }
+  },
+  methods: {
+    alertDisplay() {
+      // $swal function calls SweetAlert into the application with the specified configuration.
+      this.$swal({
+        position: 'top-end',
+        text: 'Copied !',
+        showConfirmButton: false,
+        timer: 1000,
+        width: '120px',
+        padding: ' 12px 16px',
+        popup: 'fade-in',
+        backdrop: false,
+        background: '#434554'
+        // timerProgressBar: true,
+      })
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.swal2-content {
+  color: red !important;
+}
+
 .card_container {
   display: grid;
   justify-content: center;
@@ -169,7 +192,8 @@ export default {
     width: 120px;
     height: 100px;
     border-radius: 4px;
-    box-shadow: 0 10px 20px rgba(82, 78, 78, 0.09), 0 6px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(161, 170, 175, 0.1),
+      0 6px 6px rgba(144, 150, 153, 0.4);
     cursor: pointer;
     transition: 0.333s ease-in-out;
 
@@ -185,10 +209,11 @@ export default {
 }
 
 nav {
-  width: 100%;
   display: flex;
+  text-align: center;
+  width: 100%;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 128px;
 
   input {
     height: 32px;
@@ -200,8 +225,6 @@ nav {
     background: #f3f3f4;
     border: 1px solid transparent;
     transition: 0.222s ease-in;
-    margin-bottom: 48px;
-    margin-left: auto;
 
     &:hover,
     &:focus {
@@ -212,14 +235,26 @@ nav {
   }
 
   label {
-    margin-left: auto;
-    font-weight: bold;
+    font-weight: normal;
+    display: block;
+    color: #999999;
+    text-align: left;
+    margin-top: 16px;
+    @media (min-width: 480px) {
+      margin-top: 0;
+      width: 100px;
+      margin-left: 8px;
+    }
   }
-}
 
-.badge {
-  position: absolute;
-  left: 32px;
-  top: 32px;
+  form {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    @media (min-width: 480px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
 }
 </style>

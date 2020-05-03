@@ -1,14 +1,27 @@
 <template>
   <div class="main">
     <nav class="searchbar">
-      <input class="search" type="text" placeholder="Search" v-model="keyword" />
+      <input
+        class="search"
+        type="text"
+        placeholder="Search"
+        v-model="keyword"
+      />
       <label>{{ computedProducts.length }} colors</label>
     </nav>
 
     <div class="card_container">
-      <div class="card" v-for="(product, index) in computedProducts" :key="index">
-        <div v-bind:style="{ background: product.hex }" class="background"></div>
-
+      <div
+        class="card"
+        v-for="(product, index) in computedProducts"
+        :key="index"
+      >
+        <div
+          v-bind:style="{ background: product.hex }"
+          class="background"
+          v-clipboard:copy="JSON.stringify(product.hex)"
+        ></div>
+        <span class="badge" v-if="isHidden">copied</span>
         <p>{{ product.name }}</p>
         <p>{{ product.hex }}</p>
       </div>
@@ -20,11 +33,13 @@
 export default {
   data() {
     return {
+      isHidden: false,
       isActive: false,
       colors: '',
       sortBy: 'name',
       keyword: '',
       typeOfFood: 'fruit',
+      message: 'text',
       products: [
         {
           name: 'banana',
@@ -200,5 +215,11 @@ nav {
     margin-left: auto;
     font-weight: bold;
   }
+}
+
+.badge {
+  position: absolute;
+  left: 32px;
+  top: 32px;
 }
 </style>

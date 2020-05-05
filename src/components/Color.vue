@@ -1,27 +1,18 @@
 <template>
   <div class="main">
     <nav class="searchbar">
-      <form action="">
-        <input
-          class="search"
-          type="text"
-          placeholder="Search"
-          v-model="keyword"
-        />
+      <form action>
+        <input class="search" type="text" placeholder="Search" v-model="keyword" />
         <label>{{ computedProducts.length }} colors</label>
       </form>
     </nav>
 
     <div class="card_container">
-      <div
-        class="card"
-        v-for="(product, index) in computedProducts"
-        :key="index"
-      >
+      <div class="card" v-for="(product, index) in computedProducts" :key="index">
         <div
           v-bind:style="{ background: product.hex }"
           class="background"
-          v-clipboard:copy="JSON.stringify(product.hex)"
+          v-clipboard:copy="product.hex"
           v-on:click="alertDisplay"
         ></div>
         <span class="badge" v-if="isHidden">copied</span>

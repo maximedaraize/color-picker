@@ -10,7 +10,18 @@ import Navigation from '@/components/Navigation.vue'
 export default {
   components: {
     Navigation
-  }
+  },
+  metaInfo: {
+    title: 'TASTY COLORS'
+  },
+  meta: [
+    { charset: 'utf-8' },
+    {
+      name: 'description',
+      content: 'Copy to your clipboard the tastiest color'
+    },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+  ]
 }
 </script>
 <style lang="css">

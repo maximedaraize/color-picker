@@ -2,38 +2,18 @@
   <div class="main">
     <nav class="searchbar">
       <form action>
-        <input
-          class="search"
-          type="text"
-          placeholder="Search"
-          v-model="keyword"
-        />
+        <input class="search" type="text" placeholder="Search" v-model="keyword" />
         <label>{{ computedProducts.length }} colors</label>
       </form>
     </nav>
 
     <div class="card_container">
-      <div
-        class="card"
-        v-for="(product, index) in computedProducts"
-        :key="index"
-      >
-        <div
-          v-bind:style="{ background: product.hex }"
-          class="background"
-        ></div>
+      <div class="card" v-for="(product, index) in computedProducts" :key="index">
+        <div v-bind:style="{ background: product.hex }" class="background"></div>
         <div class="color-info">
           <span class="color-name">{{ product.name }}</span>
-          <span
-            class="js-clipboard"
-            v-clipboard:copy="product.hex"
-            v-on:click="alertDisplay"
-          >
-            <img
-              src="/img/copy.svg"
-              style="width:16px;"
-              alt="copy to clipboard button"
-            />
+          <span class="js-clipboard" v-clipboard:copy="product.hex" v-on:click="alertDisplay">
+            <img src="/img/copy.svg" style="width:16px;" alt="copy to clipboard button" />
             <span class="color-hex">{{ product.hex }}</span>
           </span>
         </div>
@@ -141,7 +121,7 @@ export default {
     alertDisplay() {
       // $swal function calls SweetAlert into the application with the specified configuration.
       this.$swal({
-        position: 'bottom-start',
+        position: 'top-end',
         showConfirmButton: false,
         timer: 1000,
         width: '120px',

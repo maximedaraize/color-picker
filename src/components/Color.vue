@@ -1,21 +1,61 @@
 <template>
   <div class="main">
-    <nav class="searchbar">
-      <form action>
-        <input class="search" type="text" placeholder="Search" v-model="keyword" />
-        <label>{{ computedProducts.length }} colors</label>
-      </form>
+    <nav>
+      <div class="color-choice">
+        <label for=""> All</label>
+        <input type="radio" v-model="colors" value="" />
+      </div>
+      <div class="color-choice">
+        <input type="radio" v-model="colors" value="red" />
+        <label for="">Red</label>
+      </div>
+      <div class="color-choice">
+        <input type="radio" v-model="colors" value="green" />
+        <label for="">Green</label>
+      </div>
+      <div class="color-choice">
+        <input type="radio" v-model="colors" value="yellow" />
+        <label for="">Yellow</label>
+      </div>
+      <div class="filter">
+        <button>Filter</button>
+      </div>
     </nav>
+    <nav class="secondary">
+      <input
+        class="search"
+        type="text"
+        placeholder="recherche"
+        v-model="keyword"
+      />
 
-    <div class="card_container">
-      <div class="card" v-for="(product, index) in computedProducts" :key="index">
-        <div v-bind:style="{ background: product.hex }" class="background"></div>
-        <div class="color-info">
-          <span class="color-name">{{ product.name }}</span>
-          <span class="js-clipboard" v-clipboard:copy="product.hex" v-on:click="alertDisplay">
-            <img src="/img/copy.svg" style="width:16px;" alt="copy to clipboard button" />
-            <span class="color-hex">{{ product.hex }}</span>
-          </span>
+      <strong>Type of food:</strong>
+      fruit:
+      <input type="radio" v-model="typeOfFood" value="fruit" />
+      veggies:
+      <input type="radio" v-model="typeOfFood" value="veggies" />
+
+      <select v-model="sortBy">
+        <option value="name">Product Name</option>
+        <option value="hex">Color</option>
+        <option value="typeOfFood">typeOfFood</option>
+      </select>
+    </nav>
+    <div>
+      <h3>Total {{ computedProducts.length }} Products</h3>
+      <div class="card_container">
+        <div
+          class="card"
+          v-for="(product, index) in computedProducts"
+          :key="index"
+        >
+          <div
+            v-bind:style="{ background: product.hex }"
+            class="background"
+          ></div>
+
+          <p>{{ product.name }}</p>
+          <p>{{ product.hex }}</p>
         </div>
       </div>
     </div>
@@ -26,12 +66,11 @@
 export default {
   data() {
     return {
-      isVisible: false,
+      isActive: false,
       colors: '',
       sortBy: 'name',
       keyword: '',
       typeOfFood: 'fruit',
-      message: 'text',
       products: [
         {
           name: 'banana',
@@ -65,19 +104,19 @@ export default {
         },
         { name: 'mango', color: 'orange', hex: '#eda907', typeOfFood: 'fruit' },
         {
-          name: 'red delicious',
+          name: 'apple (red)',
           color: 'red',
           hex: '#c53121',
           typeOfFood: 'fruit'
         },
         {
-          name: 'granny smith',
+          name: 'apple (green)',
           color: 'green',
           hex: '#71ba07',
           typeOfFood: 'fruit'
         },
         {
-          name: 'golden delicious',
+          name: 'apple (yellow)',
           color: 'yellow',
           hex: '#fbd333',
           typeOfFood: 'fruit'
@@ -116,170 +155,92 @@ export default {
             .localeCompare(b[this.sortBy].toString())
         })
     }
-  },
-  methods: {
-    alertDisplay() {
-      // $swal function calls SweetAlert into the application with the specified configuration.
-      this.$swal({
-        position: 'top-start',
-        showConfirmButton: false,
-        timer: 1000,
-        width: '120px',
-        padding: ' 12px 16px',
-        popup: 'fade-in',
-        backdrop: false,
-        background: 'white',
-        timerProgressBar: false,
-        html: '<span style="color:#000">Copied!<span>'
-      })
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.color-hex {
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: opacity 0.2s ease-in;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 20px;
-  background: rgba(#726868, 0.2);
-  width: 100%;
-  height: 120px;
-  color: #fff;
-  padding: 0 !important;
-  cursor: normal;
-}
+.color-choice {
+  border: 1px solid navy;
+  border-radius: 8px;
+  padding: 6px 18px;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  margin: 0 16px;
+  transition: 0.222s ease-in;
+  color: navy;
 
-.color-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  span {
-    padding: 16px 16px;
+  &:hover,
+  .active {
+    background: navy;
+    color: #fff;
   }
-}
-.color-name {
-  width: 100%;
-  font-weight: 600;
-  text-transform: capitalize;
-}
 
-.js-clipboard {
-  display: flex;
-  align-items: center;
-  min-height: 24px;
-  height: 100%;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.2s linear;
+  input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    margin: 0;
+    color: transparent;
+    border: transparent;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
 
-  &:hover {
-    background: #f0f0f0;
-
-    .color-hex {
-      opacity: 1;
-      cursor: normal;
-    }
+  label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
   }
 }
 
 .card_container {
-  display: grid;
-  justify-content: center;
-  width: calc(100vw - 64px);
-  grid-gap: 0 16px;
-  grid-template-columns: repeat(2, 160px);
-
-  @media (min-width: 560px) {
-    grid-gap: 0 32px;
-    grid-template-columns: repeat(2, 240px);
-  }
-
-  @media (min-width: 950px) {
-    grid-template-columns: repeat(3, 240px);
-  }
-
-  @media (min-width: 1250px) {
-    grid-template-columns: repeat(4, 240px);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .card {
-  position: relative;
-  width: 100%;
-  margin-bottom: 32px;
-  border: 1px solid #f0f0f0;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-
-  .background {
-    width: 100%;
-    height: 120px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-
-    &:hover {
-      box-shadow: none;
-    }
-  }
+  width: 200px;
 }
 
 nav {
-  display: flex;
-  text-align: center;
   width: 100%;
+  display: flex;
   justify-content: center;
-  margin-bottom: 128px;
+  margin-bottom: 16px;
+}
 
-  input {
-    height: 32px;
-    max-width: 320px;
-    border-radius: 8px;
-    border: 1px solid tomato;
-    padding: 4px 16px;
-    font-size: 18px;
-    background: #f3f3f4;
-    border: 1px solid transparent;
-    transition: 0.222s ease-in;
+nav.secondary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 
-    &:hover,
-    &:focus {
-      background: transparent;
-      border: 1px solid #f3f3f4;
-      box-shadow: 0 0 0 4px rgba(234, 76, 137, 0.1);
-    }
-  }
+.background {
+  width: 120px;
+  height: 100px;
+  border-radius: 4px;
+}
 
-  label {
-    font-weight: normal;
-    display: block;
-    color: #999999;
-    text-align: left;
-    margin-top: 16px;
-    @media (min-width: 480px) {
-      margin-top: 0;
-      width: 100px;
-      margin-left: 8px;
-    }
-  }
+input.search {
+  margin-right: auto;
+}
 
-  form {
-    display: flex;
-    max-width: 400px;
-    flex-direction: column;
-    @media (min-width: 480px) {
-      flex-direction: row;
-      align-items: center;
-    }
-  }
+input {
+  margin: 0 16px;
+}
+
+p {
+  margin: 0;
 }
 </style>

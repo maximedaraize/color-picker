@@ -24,28 +24,39 @@ export default {
   ]
 }
 </script>
-<style lang="css">
+<style lang="scss">
 #app {
+  .logo {
+    @import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');
+    font-family: 'Amaranth', sans-serif;
+    margin-right: auto;
+    font-size: 48px;
+    color: #18263f;
+    font-weight: normal;
+  }
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-#nav {
+
+a {
+  text-decoration: none;
+}
+#menu {
   display: flex;
   justify-content: flex-end;
-  padding: 32px 0;
+  align-items: center;
+  margin-top: 64px;
+  margin-bottom: 64px;
 }
 
-#nav a {
+#menu a {
   font-weight: bold;
   color: #2c3e50;
   padding: 0 8px;
 }
 
-a.router-link-exact-active {
-  color: #42b983;
-}
 body {
   margin: 32px;
 }

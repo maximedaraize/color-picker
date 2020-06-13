@@ -3,8 +3,8 @@
     <nav class="searchbar">
       <form action>
         <input class="search" type="text" placeholder="Search" v-model="keyword" />
-        <label>{{ computedProducts.length }} colors</label>
       </form>
+      <label>{{ computedProducts.length }} colors</label>
     </nav>
 
     <div class="card_container">
@@ -238,13 +238,34 @@ nav {
   text-align: center;
   width: 100%;
   justify-content: center;
-  margin-bottom: 128px;
+  margin-bottom: 64px;
+  display: grid;
+  justify-content: center;
+  width: calc(100vw - 64px);
+  grid-gap: 0 32px;
+  grid-template-columns: repeat(1, 320px);
+  @media (min-width: 560px) {
+    grid-gap: 0 32px;
+    grid-template-columns: repeat(2, 240px);
+  }
+
+  @media (min-width: 950px) {
+    grid-template-columns: repeat(3, 240px);
+  }
+
+  @media (min-width: 1250px) {
+    grid-template-columns: repeat(4, 240px);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 
   input {
     height: 32px;
-    max-width: 320px;
+    width: 100%;
     border-radius: 8px;
-    border: 1px solid tomato;
     padding: 4px 16px;
     font-size: 18px;
     background: #f3f3f4;
@@ -264,22 +285,15 @@ nav {
     display: block;
     color: #999999;
     text-align: left;
-    margin-top: 16px;
-    @media (min-width: 480px) {
-      margin-top: 0;
-      width: 100px;
-      margin-left: 8px;
-    }
+    width: 100%;
+    margin-top: 10px;
   }
 
   form {
     display: flex;
-    max-width: 400px;
-    flex-direction: column;
-    @media (min-width: 480px) {
-      flex-direction: row;
-      align-items: center;
-    }
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 </style>

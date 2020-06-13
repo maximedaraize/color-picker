@@ -1,8 +1,8 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Logo</router-link>
+  <div id="menu">
+    <router-link to="/" class="logo">tasty colors</router-link>
     <router-link to="/about">About</router-link>
-    <a href="https://github.com/maximedaraize" target="_blank">github</a>
+    <!-- <a href="https://github.com/maximedaraize" target="_blank">github</a> -->
   </div>
 </template>
 
@@ -12,4 +12,5 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+</style>

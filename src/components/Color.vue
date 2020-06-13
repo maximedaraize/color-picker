@@ -3,10 +3,6 @@
     <nav class="searchbar">
       <form action>
         <input class="search" type="text" placeholder="Search" v-model="keyword" />
-<<<<<<< HEAD
-        <label>{{ computedProducts.length }} colors</label>
-=======
->>>>>>> master
       </form>
       <label>{{ computedProducts.length }} colors</label>
     </nav>
@@ -125,11 +121,7 @@ export default {
     alertDisplay() {
       // $swal function calls SweetAlert into the application with the specified configuration.
       this.$swal({
-<<<<<<< HEAD
-        position: 'top-start',
-=======
         position: 'top-end',
->>>>>>> master
         showConfirmButton: false,
         timer: 1000,
         width: '120px',

@@ -25,14 +25,16 @@ export default {
 }
 </script>
 <style lang="scss">
+$color-primary: #18263f;
 #app {
   .logo {
     @import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');
     font-family: 'Amaranth', sans-serif;
     margin-right: auto;
     font-size: 48px;
-    color: #18263f;
+    color: $color-primary;
     font-weight: normal;
+    padding-left: 0;
   }
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

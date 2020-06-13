@@ -54,7 +54,43 @@ export default {
         {
           name: 'raspberry',
           color: 'red',
-          hex: '#f0455e',
+          hex: '#AA2831',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'lemon',
+          color: 'yellow',
+          hex: '#F1D40D',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'lime',
+          color: 'green',
+          hex: '#4C8A01',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'grapefruit',
+          color: 'pink',
+          hex: '#e74b3e',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'blueberry',
+          color: 'blue',
+          hex: '#313F58',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'pineapple',
+          color: 'yellow',
+          hex: '#FFBC17',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'peach',
+          color: 'orange',
+          hex: '#ED8750',
           typeOfFood: 'fruit'
         },
         {
@@ -92,7 +128,7 @@ export default {
         {
           name: 'coconut',
           color: 'white',
-          hex: '#dddeda',
+          hex: '#EDE9E5',
           typeOfFood: 'fruit'
         },
         { name: 'kiwi', color: 'green', hex: '#a3c24a', typeOfFood: 'fruit' }
@@ -128,9 +164,9 @@ export default {
         padding: ' 12px 16px',
         popup: 'fade-in',
         backdrop: false,
-        background: 'white',
+        background: '#18263f',
         timerProgressBar: false,
-        html: '<span style="color:#000">Copied!<span>'
+        html: '<span style="color:#fff">Copied!<span>'
       })
     }
   }

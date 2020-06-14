@@ -3,19 +3,16 @@
     <section>
       <h1>About</h1>
       <p>
-        Tasty colors is a collection of color based on fruit. The app let you copy
-        to your clipboard the hexadecimal value of the color you clicked on. More
-        colors will be added to the site every weeks.
+        Tasty colors is a collection of color based on fruit. The app let you
+        copy to your clipboard the hexadecimal value of the color you clicked
+        on. More colors will be added to the site every weeks.
       </p>
     </section>
     <section>
       <h2>Submit a color</h2>
       <p>
         If you want to submit a color, send me a
-        <a
-          href="https://twitter.com/maximedaraize"
-          target="_blank"
-        >tweet</a>.
+        <a href="https://twitter.com/maximedaraize" target="_blank">tweet</a>.
         Tell me which fruit and the hexadecimal value you want to see.
       </p>
     </section>
@@ -30,17 +27,20 @@
             href="https://github.com/maximedaraize"
             target="_blank"
             rel="noopener noreferrer"
-          >Github</a>
+            >Github</a
+          >
           <a
             href="https://codepen.io/maximedaraize"
             target="_blank"
             rel="noopener noreferrer"
-          >Codepen</a>
+            >Codepen</a
+          >
           <a
             href="https://twitter.com/maximedaraize"
             target="_blank"
             rel="noopener noreferrer"
-          >Twitter</a>
+            >Twitter</a
+          >
         </div>
       </div>
       <div class="card">
@@ -53,12 +53,14 @@
             href="https://dribbble.com/ericaboudreau"
             target="_blank"
             rel="noopener noreferrer"
-          >Dribbble</a>
+            >Dribbble</a
+          >
           <a
             href="https://www.behance.net/ericaboudreau?tracking_source=search_users_recommended%7C%C3%A9rica%20boudreau"
             target="_blank"
             rel="noopener noreferrer"
-          >Behance</a>
+            >Behance</a
+          >
         </div>
       </div>
     </section>
@@ -70,6 +72,12 @@ h1 {
   font-size: 32px;
 }
 
+h1,
+h2 {
+  margin-bottom: 16px;
+}
+
+h2,
 h3,
 h4 {
   margin-top: 0;
@@ -78,6 +86,10 @@ h4 {
 
 h4 {
   font-weight: 400;
+}
+
+p {
+  margin-bottom: 0;
 }
 
 .about {
@@ -144,6 +156,12 @@ h4 {
         border-radius: 8px;
         box-shadow: 10px 10px 27px #e1e1e3, -15px -15px 27px #ffffff;
         margin-bottom: 32px;
+
+        @media (min-width: 700px) {
+          + .card {
+            margin-left: 40px;
+          }
+        }
 
         .follow {
           display: flex;

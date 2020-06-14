@@ -31,6 +31,7 @@ export default {
   margin-top: 64px;
   margin-bottom: 64px;
   display: grid;
+  align-items: center;
   justify-content: center;
   width: calc(100vw - 64px);
   grid-gap: 0 16px;

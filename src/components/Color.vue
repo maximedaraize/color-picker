@@ -332,9 +332,12 @@ nav {
   position: relative;
   width: 100%;
   margin-bottom: 32px;
-  border: 1px solid #f0f0f0;
   border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 10px 10px 27px #e1e1e3, -5px -5px 13px #ffffff;
+
+  @media (min-width: 560px) {
+    box-shadow: 10px 10px 27px #e1e1e3, -15px -15px 27px #ffffff;
+  }
 
   .background {
     width: 100%;

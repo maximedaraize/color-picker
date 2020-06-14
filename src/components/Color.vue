@@ -2,18 +2,38 @@
   <div class="main">
     <nav class="searchbar">
       <form action>
-        <input class="search" type="text" placeholder="Search" v-model="keyword" />
+        <input
+          class="search"
+          type="text"
+          placeholder="Search"
+          v-model="keyword"
+        />
       </form>
       <label>{{ computedProducts.length }} colors</label>
     </nav>
 
     <div class="card_container">
-      <div class="card" v-for="(product, index) in computedProducts" :key="index">
-        <div v-bind:style="{ background: product.hex }" class="background"></div>
+      <div
+        class="card"
+        v-for="(product, index) in computedProducts"
+        :key="index"
+      >
+        <div
+          v-bind:style="{ background: product.hex }"
+          class="background"
+        ></div>
         <div class="color-info">
           <span class="color-name">{{ product.name }}</span>
-          <span class="js-clipboard" v-clipboard:copy="product.hex" v-on:click="alertDisplay">
-            <img src="/img/copy.svg" style="width:16px;" alt="copy to clipboard button" />
+          <span
+            class="js-clipboard"
+            v-clipboard:copy="product.hex"
+            v-on:click="alertDisplay"
+          >
+            <img
+              src="/img/copy.svg"
+              style="width:16px;"
+              alt="copy to clipboard button"
+            />
             <span class="color-hex">{{ product.hex }}</span>
           </span>
         </div>
@@ -281,11 +301,10 @@ nav {
     border: 1px solid transparent;
     transition: 0.222s ease-in;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background: transparent;
       border: 1px solid #f3f3f4;
-      box-shadow: 0 0 0 4px rgba(234, 76, 137, 0.1);
+      box-shadow: 0 0 0 4px rgba(#18263f, 0.1);
     }
   }
 
@@ -344,10 +363,6 @@ nav {
     height: 120px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-
-    &:hover {
-      box-shadow: none;
-    }
   }
 }
 
@@ -365,12 +380,10 @@ nav {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 20px;
-  background: rgba(#726868, 0.2);
   width: 100%;
   height: 120px;
   color: #fff;
   padding: 0 !important;
-  cursor: normal;
 }
 
 //name and copy section

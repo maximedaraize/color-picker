@@ -42,13 +42,34 @@ export default {
 
 a {
   text-decoration: none;
+  display: inline;
+  position: relative;
+  overflow: hidden;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  width: 0;
+  bottom: -2px;
+  background: #000;
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+a:hover:after,
+a:focus:after,
+a:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
 }
 
 body {
   margin: 32px;
 }
-
-/* * {
-  outline: 1px solid red;
-} */
 </style>

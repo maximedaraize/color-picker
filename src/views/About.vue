@@ -144,7 +144,6 @@ h4 {
         border-radius: 8px;
         box-shadow: 10px 10px 27px #e1e1e3, -15px -15px 27px #ffffff;
         margin-bottom: 32px;
-        // background: #f3f3f4;
 
         .follow {
           display: flex;
@@ -167,11 +166,6 @@ h4 {
   a {
     color: var(--color-primary);
     font-weight: 500;
-    transition: 0.2s ease-in;
-
-    &:hover {
-      color: #9eb1db;
-    }
   }
 }
 </style>

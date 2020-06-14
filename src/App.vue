@@ -24,47 +24,52 @@ export default {
   ]
 }
 </script>
-<style lang="scss">
+
+<style lang="css">
+/*GLOBAL STYLES*/
+:root {
+  --color-primary: #18263f;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 #app {
-  .logo {
-    @import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');
-    font-family: 'Amaranth', sans-serif;
-    margin-right: auto;
-    font-size: 48px;
-    color: #18263f;
-    font-weight: normal;
-  }
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: var(--color-primary);
 }
 
 a {
   text-decoration: none;
-}
-#menu {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 64px;
-  margin-bottom: 64px;
+  display: inline;
+  position: relative;
+  overflow: hidden;
 }
 
-#menu a {
-  font-weight: bold;
-  color: #2c3e50;
-  padding: 0 8px;
+a::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  width: 0;
+  bottom: -2px;
+  background: #000;
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+a:hover:after,
+a:focus:after,
+a:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
 }
 
 body {
   margin: 32px;
-}
-
-.swal2-content {
-  color: white !important;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 </style>

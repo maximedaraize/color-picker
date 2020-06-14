@@ -17,10 +17,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
 </style>

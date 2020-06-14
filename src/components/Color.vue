@@ -54,7 +54,43 @@ export default {
         {
           name: 'raspberry',
           color: 'red',
-          hex: '#f0455e',
+          hex: '#AA2831',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'lemon',
+          color: 'yellow',
+          hex: '#F1D40D',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'lime',
+          color: 'green',
+          hex: '#4C8A01',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'grapefruit',
+          color: 'pink',
+          hex: '#e74b3e',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'blueberry',
+          color: 'blue',
+          hex: '#313F58',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'pineapple',
+          color: 'yellow',
+          hex: '#FFBC17',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'peach',
+          color: 'orange',
+          hex: '#ED8750',
           typeOfFood: 'fruit'
         },
         {
@@ -92,9 +128,76 @@ export default {
         {
           name: 'coconut',
           color: 'white',
-          hex: '#dddeda',
+          hex: '#EDE9E5',
           typeOfFood: 'fruit'
         },
+        {
+          name: 'rhubarb',
+          color: 'red',
+          hex: '#D91A2C',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'prunes',
+          color: 'blue',
+          hex: '#2B303E',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'pomegranate',
+          color: 'red',
+          hex: '#C82007',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'prickly pear',
+          color: 'red',
+          hex: '#E92857',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'bartlett',
+          color: 'yellow',
+          hex: '#DBC65D',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'papaya',
+          color: 'orange',
+          hex: '#FC5209',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'olives',
+          color: 'green',
+          hex: '#858719',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'elderberry',
+          color: 'blue',
+          hex: '#111110',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'cranberry',
+          color: 'red',
+          hex: '#CC0111',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'cantaloupe',
+          color: 'orange',
+          hex: '#E7863A',
+          typeOfFood: 'fruit'
+        },
+        {
+          name: 'plantain',
+          color: 'yellow',
+          hex: '#F1B83D',
+          typeOfFood: 'fruit'
+        },
+
         { name: 'kiwi', color: 'green', hex: '#a3c24a', typeOfFood: 'fruit' }
       ]
     }
@@ -128,9 +231,9 @@ export default {
         padding: ' 12px 16px',
         popup: 'fade-in',
         backdrop: false,
-        background: 'white',
+        background: '#fff',
         timerProgressBar: false,
-        html: '<span style="color:#000">Copied!<span>'
+        html: '<span style="color:#18263f; font-family: Roboto;">Copied!<span>'
       })
     }
   }
@@ -138,101 +241,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.color-hex {
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: opacity 0.2s ease-in;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 20px;
-  background: rgba(#726868, 0.2);
-  width: 100%;
-  height: 120px;
-  color: #fff;
-  padding: 0 !important;
-  cursor: normal;
-}
-
-.color-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  span {
-    padding: 16px 16px;
-  }
-}
-.color-name {
-  width: 100%;
-  font-weight: 600;
-  text-transform: capitalize;
-}
-
-.js-clipboard {
-  display: flex;
-  align-items: center;
-  min-height: 24px;
-  height: 100%;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.2s linear;
-
-  &:hover {
-    background: #f0f0f0;
-
-    .color-hex {
-      opacity: 1;
-      cursor: normal;
-    }
-  }
-}
-
-.card_container {
-  display: grid;
-  justify-content: center;
-  width: calc(100vw - 64px);
-  grid-gap: 0 16px;
-  grid-template-columns: repeat(2, 160px);
-
-  @media (min-width: 560px) {
-    grid-gap: 0 32px;
-    grid-template-columns: repeat(2, 240px);
-  }
-
-  @media (min-width: 950px) {
-    grid-template-columns: repeat(3, 240px);
-  }
-
-  @media (min-width: 1250px) {
-    grid-template-columns: repeat(4, 240px);
-  }
-}
-
-.card {
-  position: relative;
-  width: 100%;
-  margin-bottom: 32px;
-  border: 1px solid #f0f0f0;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-
-  .background {
-    width: 100%;
-    height: 120px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-
-    &:hover {
-      box-shadow: none;
-    }
-  }
-}
-
+//filter section
 nav {
   display: flex;
   text-align: center;
@@ -294,6 +303,110 @@ nav {
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
+  }
+}
+
+//grid
+.card_container {
+  display: grid;
+  justify-content: center;
+  width: calc(100vw - 64px);
+  grid-gap: 0 16px;
+  grid-template-columns: repeat(2, 160px);
+
+  @media (min-width: 560px) {
+    grid-gap: 0 32px;
+    grid-template-columns: repeat(2, 240px);
+  }
+
+  @media (min-width: 950px) {
+    grid-template-columns: repeat(3, 240px);
+  }
+
+  @media (min-width: 1250px) {
+    grid-template-columns: repeat(4, 240px);
+  }
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  margin-bottom: 32px;
+  border-radius: 4px;
+  box-shadow: 10px 10px 27px #e1e1e3, -5px -5px 13px #ffffff;
+
+  @media (min-width: 560px) {
+    box-shadow: 10px 10px 27px #e1e1e3, -15px -15px 27px #ffffff;
+  }
+
+  .background {
+    width: 100%;
+    height: 120px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+// HEX value hover card
+.color-hex {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity 0.2s ease-in;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 20px;
+  background: rgba(#726868, 0.2);
+  width: 100%;
+  height: 120px;
+  color: #fff;
+  padding: 0 !important;
+  cursor: normal;
+}
+
+//name and copy section
+.color-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    padding: 16px 16px;
+  }
+}
+
+//card name
+.color-name {
+  width: 100%;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+//copy button
+.js-clipboard {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+  height: 100%;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s linear;
+
+  &:hover {
+    background: #f0f0f0;
+
+    .color-hex {
+      opacity: 1;
+      cursor: normal;
+    }
   }
 }
 </style>

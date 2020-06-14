@@ -24,49 +24,27 @@ export default {
   ]
 }
 </script>
-<style lang="scss">
-$color-primary: #18263f;
+
+<style lang="css">
+/*GLOBAL STYLES*/
+:root {
+  --color-primary: #18263f;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
 #app {
-  .logo {
-    @import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');
-    font-family: 'Amaranth', sans-serif;
-    margin-right: auto;
-    font-size: 48px;
-    color: $color-primary;
-    font-weight: normal;
-    padding-left: 0;
-  }
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: var(--color-primary);
 }
 
 a {
   text-decoration: none;
 }
-#menu {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 64px;
-  margin-bottom: 64px;
-}
-
-#menu a {
-  font-weight: bold;
-  color: #2c3e50;
-  padding: 0 8px;
-}
 
 body {
   margin: 32px;
-}
-
-.swal2-content {
-  color: white !important;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 </style>

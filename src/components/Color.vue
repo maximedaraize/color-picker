@@ -205,7 +205,7 @@ export default {
 }
 .color-name {
   width: 100%;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: capitalize;
 }
 
@@ -331,5 +331,12 @@ nav {
     flex-direction: row;
     justify-content: space-between;
   }
+}
+
+.swal2-content {
+  color: white !important;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>

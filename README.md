@@ -1,5 +1,8 @@
 # TASTY COLORS
 
+## Site
+[tastycolor.io](https://www.tastycolors.io)
+
 ## Project setup
 
 ```

@@ -2,16 +2,16 @@
   <div class="about">
     <section>
       <h1>About</h1>
-      <p>Tasty colors is a collection of color based on fruits. The app lets you copy to your clipboard the hexadecimal value of the color you clicked on. More colors will be added to the site every week.</p>
+      <p>
+        Tasty color let you copy to your clipboard the hexadecimal value of the
+        color you clicked on. More colors will be added to the site every week.
+      </p>
     </section>
     <section>
       <h2>Submit a color</h2>
       <p>
         If you want to submit a color, send me a
-        <a
-          href="https://twitter.com/maximedaraize"
-          target="_blank"
-        >tweet</a>.
+        <a href="https://twitter.com/maximedaraize" target="_blank">tweet</a>.
         Tell me which fruit and the hexadecimal value you want to see.
       </p>
     </section>
@@ -26,17 +26,20 @@
             href="https://github.com/maximedaraize"
             target="_blank"
             rel="noopener noreferrer"
-          >Github</a>
+            >Github</a
+          >
           <a
             href="https://codepen.io/maximedaraize"
             target="_blank"
             rel="noopener noreferrer"
-          >Codepen</a>
+            >Codepen</a
+          >
           <a
             href="https://twitter.com/maximedaraize"
             target="_blank"
             rel="noopener noreferrer"
-          >Twitter</a>
+            >Twitter</a
+          >
         </div>
       </div>
       <div class="card">
@@ -49,12 +52,14 @@
             href="https://dribbble.com/ericaboudreau"
             target="_blank"
             rel="noopener noreferrer"
-          >Dribbble</a>
+            >Dribbble</a
+          >
           <a
             href="https://www.behance.net/ericaboudreau?tracking_source=search_users_recommended%7C%C3%A9rica%20boudreau"
             target="_blank"
             rel="noopener noreferrer"
-          >Behance</a>
+            >Behance</a
+          >
         </div>
       </div>
     </section>

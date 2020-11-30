@@ -1,6 +1,6 @@
 # TASTY COLORS
 
-## Site
+## Site live
 [tastycolor.io](https://www.tastycolors.io)
 
 ## Project setup

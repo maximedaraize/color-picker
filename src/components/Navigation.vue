@@ -14,7 +14,6 @@
       <span class="logo-letter">r</span>
       <span class="logo-letter">s</span>
     </router-link>
-    <router-link to="/about">About</router-link>
   </div>
 </template>
 

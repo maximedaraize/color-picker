@@ -247,7 +247,7 @@ export default {
         position: 'top-end',
         showConfirmButton: false,
         timer: 1000,
-        width: '120px',
+        width: '160px',
         padding: ' 12px 16px',
         popup: 'fade-in',
         backdrop: false,
